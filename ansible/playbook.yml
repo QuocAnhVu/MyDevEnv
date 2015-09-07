@@ -1,0 +1,20 @@
+# Useful link: https://adamcod.es/2014/09/23/vagrant-ansible-quickstart-tutorial.html
+---
+- hosts: all
+  sudo: true
+  tasks:
+    - name: Update aptitude cache.
+      apt: update_cache=yes
+    - name: Upgrade all packages to latest (safe).
+      apt: upgrade=safe
+    - name: Authorize SSH from all my PCs.
+      authorized_key: user=vagrant key=https://github.com/QuocAnhVu.keys
+    - name: Install required packages.
+      apt: name={{ item }} state=present
+      with_items:
+        - node
+        - git
+    - name: Configure bash
+      file: src={{ item.path }}  dest={{ item.dest }} state=link
+      with_items:
+        - { path: '/vagrant/ansible/bash_profile', dest: '/home/vagrant/.bash_profile' }

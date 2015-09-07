@@ -1,6 +1,0 @@
-[submodule "puppet/modules/puppet-nodejs"]
-	path = puppet/modules/puppet-nodejs
-	url = https://github.com/puppet-community/puppet-nodejs
-[submodule "puppet/modules/puppetlabs-git"]
-	path = puppet/modules/puppetlabs-git
-	url = https://github.com/puppetlabs/puppetlabs-git
