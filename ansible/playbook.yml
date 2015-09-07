@@ -3,6 +3,9 @@
 - hosts: all
   sudo: true
   tasks:
+    - name: Set hostname to "VagrantDev"
+      hostname: name=VagrantDev
+      
     - name: Configure bash
       file: src={{ item.path }} dest={{ item.dest }} state=link force=yes
       with_items:
