@@ -65,10 +65,17 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+" Set nocompatible (vimimproved)
+set nocompatible
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Display line numbers
+set number
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
