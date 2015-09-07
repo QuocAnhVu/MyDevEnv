@@ -2,3 +2,4 @@
 .vagrant/
 .bash_history
 .cache/
+.DS_Store
