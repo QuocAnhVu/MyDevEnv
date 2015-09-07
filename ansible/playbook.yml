@@ -20,3 +20,7 @@
         - { path: '/vagrant/ansible/bash/.bash_profile', dest: '/home/vagrant/.bash_profile' }
         - { path: '/vagrant/ansible/bash/.bashrc', dest: '/home/vagrant/.bashrc' }
         - { path: '/vagrant/ansible/bash/.bash_logout', dest: '/home/vagrant/.bash_logout' }
+    - name: Configure vim
+      file: src={{ item.path }}  dest={{ item.dest }} state=link force=yes
+      with_items:
+        - { path: '/vagrant/ansible/vim/.vimrc', dest: '/home/vagrant/.vimrc' }
