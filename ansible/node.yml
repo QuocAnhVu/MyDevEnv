@@ -1,0 +1,17 @@
+---
+- name: Install node.js 
+  apt: name=nodejs state=present
+- name: Create 'node' alias for 'nodejs'
+  file: src="/usr/bin/nodejs" dest=/usr/bin/node state=link
+
+- name: Install npm 
+  apt: name=npm state=present
+
+- name: Install node.js global packages.
+  npm: name={{ item }} global=yes
+  with_items:
+    - coffee-script
+    - babel
+    - express-generator
+    - browserify
+    - nodemon

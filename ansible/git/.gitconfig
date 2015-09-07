@@ -1,0 +1,7 @@
+user.name=Quoc-Anh Vu
+user.email=quoc.v.anh@gmail.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+core.editor=vim
