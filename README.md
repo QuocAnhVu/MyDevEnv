@@ -1,5 +1,5 @@
 # MyDevEnv
-This is the VM setup that I personally use across multiple machines.
+This is my setup for development.
 
 ## Host Machine Prereqisites
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
