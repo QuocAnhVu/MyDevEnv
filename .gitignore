@@ -1,3 +1,4 @@
 .ssh/
 .vagrant/
 .bash_history
+.cache/
