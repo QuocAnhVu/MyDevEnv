@@ -12,6 +12,8 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   config.vm.synced_folder "./", "/vagrant"
 
+  vagrant.vm.network "forwarded_port", guest: 3000, host: 3000
+
   # Use Ansible to provision VM
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "ansible/playbook.yml"
