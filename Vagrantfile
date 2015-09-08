@@ -14,10 +14,37 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
-  # Use Librarian-Chef to provision Chef
+  # Use Librarian-Chef to provision Chef cookbooks
   config.librarian_chef.cheffile_dir = "chef"
   # Use Chef solo to provision VM
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "chef/cookbooks"
+
+    chef.json = {
+      set_fqdn: 'VagrantDev'
+      nodejs: {
+        npm_packages: {
+          {
+            name: "coffee-script"
+          },
+          {
+            name: "babel"
+          },
+          {
+            name: "browserify"
+          },
+          {
+            name: "nodemon"
+          },
+          {
+            name: "express-generator"
+          }
+        }
+      }
+    }
+    
+    chef.add_recipe 'hostnames'
+    chef.add_recipe 'git'
+    chef.add_recipe 'nodejs'
   end
 end

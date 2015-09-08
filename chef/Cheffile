@@ -2,5 +2,6 @@
 
 site 'http://community.opscode.com/api/v1'
 
+cookbook "hostnames"
 cookbook "git"
 cookbook "nodejs"
