@@ -24,21 +24,11 @@ Vagrant.configure(2) do |config|
       set_fqdn: "VagrantDev",
       nodejs: {
         npm_packages: [
-          {
-            name: "coffee-script"
-          },
-          {
-            name: "babel"
-          },
-          {
-            name: "browserify"
-          },
-          {
-            name: "nodemon"
-          },
-          {
-            name: "express-generator"
-          }
+          { name: "coffee-script" },
+          { name: "babel" },
+          { name: "browserify" },
+          { name: "nodemon" },
+          { name: "express-generator" }
         ]
       }
     }
