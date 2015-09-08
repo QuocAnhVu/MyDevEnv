@@ -21,9 +21,9 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = "chef/cookbooks"
 
     chef.json = {
-      set_fqdn: 'VagrantDev'
+      set_fqdn: "VagrantDev",
       nodejs: {
-        npm_packages: {
+        npm_packages: [
           {
             name: "coffee-script"
           },
@@ -39,10 +39,10 @@ Vagrant.configure(2) do |config|
           {
             name: "express-generator"
           }
-        }
+        ]
       }
     }
-    
+
     chef.add_recipe 'hostnames'
     chef.add_recipe 'git'
     chef.add_recipe 'nodejs'
