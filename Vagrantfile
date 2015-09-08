@@ -14,9 +14,10 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
+  # Use Librarian-Chef to provision Chef
+  config.librarian_chef.cheffile_dir = "chef"
   # Use Chef solo to provision VM
   config.vm.provision :chef_solo do |chef|
-    chef.roles_path = "chef/roles"
     chef.cookbooks_path = "chef/cookbooks"
   end
 end

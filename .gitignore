@@ -3,3 +3,6 @@
 .bash_history
 .cache/
 .DS_Store
+chef/cookbooks/*
+chef/tmp/
+chef/Cheffile.lock
