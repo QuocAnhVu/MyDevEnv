@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
   # Use Librarian-Chef to provision Chef cookbooks
   config.librarian_chef.cheffile_dir = "chef"
   # Use Chef solo to provision VM
-  config.vm.provision :chef_solo do |chef|
+  config.vm.provision :chef_zero do |chef|
     chef.cookbooks_path = "chef/cookbooks"
 
     chef.json = {
