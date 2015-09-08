@@ -14,8 +14,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
 
-  # Use Ansible to provision VM
-  config.vm.provision :ansible do |ansible|
-    ansible.playbook = "ansible/playbook.yml"
+  # Use Chef solo to provision VM
+  config.vm.provision :chef_solo do |chef|
+    chef.roles_path = "chef/roles"
+    chef.cookbooks_path = "chef/cookbooks"
   end
 end

@@ -1,5 +1,0 @@
---- 
-- name: Install git.
-  apt: name=git state=present
-- name: Config git
-  file: src=/vagrant/ansible/git/.gitconfig dest=/home/vagrant/.gitconfig state=link force=yes
