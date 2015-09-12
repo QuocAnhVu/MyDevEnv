@@ -12,7 +12,12 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   config.vm.synced_folder "../", "/vagrant"
 
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  forwadedPorts = [3000, 4444, 80, 8080]
+  forwadedPorts.each { |port| config.vm.network "forwarded_port", guest: port, host: port }
+
+  # config.vm.provider "virtualbox" do |virtualbox|
+  #   virtualbox.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+  # end
 
   # Use Librarian-Chef to provision Chef cookbooks
   config.librarian_chef.cheffile_dir = "chef"
