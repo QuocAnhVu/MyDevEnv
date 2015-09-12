@@ -34,7 +34,8 @@ Vagrant.configure(2) do |config|
           { name: "browserify" },
           { name: "nodemon" },
           { name: "express-generator" },
-          { name: "jade" }
+          { name: "jade" },
+          { name: "sails" }
         ]
       }
     }
