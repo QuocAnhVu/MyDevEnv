@@ -6,17 +6,15 @@ Vagrant.configure(2) do |config|
   # This box is pulled from the Vagrant Atlas.
   config.vm.box = "ubuntu/trusty64"
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
+  # Share a folder to the guest VM.
   config.vm.synced_folder "../", "/vagrant"
 
   forwadedPorts = [3000, 4444, 80, 8080]
   forwadedPorts.each { |port| config.vm.network "forwarded_port", guest: port, host: port }
 
-  # config.vm.provider "virtualbox" do |virtualbox|
-  #   virtualbox.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+  # Enables symlink creation within vm on Windows hosts
+  # config.vm.provider "virtualbox" do |v|
+  #     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
   # end
 
   # Use Librarian-Chef to provision Chef cookbooks
@@ -37,11 +35,13 @@ Vagrant.configure(2) do |config|
           { name: "jade" },
           { name: "sails" }
         ]
+      },
+      homerc: {
+        users: ['vagrant']
       }
     }
 
-    chef.add_recipe 'hostnames'
-    chef.add_recipe 'git'
-    chef.add_recipe 'nodejs'
+    recipes = ['hostnames', 'git', 'nodejs', 'vim', 'homerc']
+    recipes.each { |recipe| chef.add_recipe recipe }
   end
 end
