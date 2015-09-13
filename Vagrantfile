@@ -4,7 +4,7 @@
 Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box.
   # This box is pulled from the Vagrant Atlas.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "debian/jessie64"
 
   # Share a folder to the guest VM.
   config.vm.synced_folder "../", "/vagrant"
